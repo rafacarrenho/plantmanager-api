@@ -17,3 +17,11 @@ export const compareValues = (key, order = "asc") => {
     return order === "desc" ? comparison * -1 : comparison;
   };
 };
+
+export const paginate = (data, page, limit) => {
+  let numberPage = Number(page);
+  let numberLimit = Number(limit);
+  let offset = numberPage == 1 ? 0 : numberPage * numberLimit - numberLimit;
+  let limitData = offset + numberLimit;
+  return data.slice(offset, limitData);
+};

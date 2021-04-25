@@ -3,8 +3,6 @@ import api from "./server.json";
 import { compareValues } from "../../helper/utils";
 
 export default ({ query: { _sort, _order } }, res) => {
-  const result = compareValues;
-  res
-    .status(200)
-    .json(api.plants_environments.sort(compareValues(_sort, _order)));
+  const result = api.plants_environments.sort(compareValues(_sort, _order));
+  res.status(200).json(result);
 };
